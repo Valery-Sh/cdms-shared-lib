@@ -6,4 +6,5 @@ package org.cdms.remoting;
  */
 public interface AuthService {
     UserInfo authenticate(String name, String password);
+    
 }

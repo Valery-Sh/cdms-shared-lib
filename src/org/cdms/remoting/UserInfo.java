@@ -14,6 +14,19 @@ public class UserInfo implements Serializable {
     private String firstName;
     private String lastName;
     private String userName;
+    /**
+     * For now contains password
+     */
+    private String ticket;
+
+    public String getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(String ticket) {
+        this.ticket = ticket;
+    }
+    
     private List<String> roles = new ArrayList<String>();
 
     public String getFirstName() {
@@ -46,5 +59,14 @@ public class UserInfo implements Serializable {
 
     public void setRoles(List<String> roles) {
         this.roles = roles;
+    }
+    
+    public boolean inRole(String... role) {
+        for ( String r : role ) {
+            if ( getRoles().contains(r)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -44,7 +44,7 @@ public class User implements Serializable {
     @Size(min=1,max=16) 
     private String password;
     
-    @OneToMany(mappedBy = "user",fetch= FetchType.EAGER)
+    @OneToMany(mappedBy = "user",fetch= FetchType.LAZY)
     private List<Permission> permissions = new ArrayList<Permission>();
     
     
