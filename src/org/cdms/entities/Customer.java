@@ -40,6 +40,11 @@ public class Customer implements Serializable {
      */
     @Transient    
     private Date createdAtEnd;
+    /**
+     * For filter by example 
+     */
+    @Transient    
+    private String idFilter;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CDMS_CUSTOMERS_SEQ")
@@ -77,6 +82,14 @@ public class Customer implements Serializable {
 
     public void setCreatedBy(User createdBy) {
         this.createdBy = createdBy;
+    }
+
+    public String getIdFilter() {
+        return idFilter;
+    }
+
+    public void setIdFilter(String idFilter) {
+        this.idFilter = idFilter;
     }
     
     public Long getId() {
