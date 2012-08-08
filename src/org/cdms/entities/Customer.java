@@ -1,5 +1,7 @@
 package org.cdms.entities;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -68,20 +70,54 @@ public class Customer implements Serializable {
     // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone/fax format, should be as xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
     private String phone;
     
-    @NotNull 
+    //@NotNull 
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date createdAt;
     
     @NotNull 
-    @ManyToOne(fetch= FetchType.EAGER)
+    @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name="createdBy",referencedColumnName="id")
     private User createdBy;
+    
+    @Transient
+    private transient PropertyChangeSupport changeSupport;
+    
+    public Customer() {
+        if ( changeSupport == null ) {
+            changeSupport = new PropertyChangeSupport(this);
+        }
+    }
+    
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        if ( changeSupport == null ) {
+            changeSupport = new PropertyChangeSupport(this);
+        }
+        changeSupport.addPropertyChangeListener(listener);
+    }
+ 
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        if ( changeSupport == null ) {
+            return;
+        }
+        changeSupport.removePropertyChangeListener(listener);
+    }    
+    protected void fire(String propertyName,Object oldValue, Object newValue) {
+        if ( changeSupport == null ) {
+            return;
+        }
+        changeSupport.firePropertyChange(propertyName, oldValue, newValue);
+
+    }
+    
     public User getCreatedBy() {
         return createdBy;
     }
 
     public void setCreatedBy(User createdBy) {
+        User oldValue = this.createdBy;
         this.createdBy = createdBy;
+        fire("createdBy", oldValue, createdBy);
+         
     }
 
     public String getIdFilter() {
@@ -89,7 +125,9 @@ public class Customer implements Serializable {
     }
 
     public void setIdFilter(String idFilter) {
+        String oldValue = this.idFilter;
         this.idFilter = idFilter;
+        fire("idFilter", oldValue, idFilter);
     }
     
     public Long getId() {
@@ -97,7 +135,9 @@ public class Customer implements Serializable {
     }
 
     public void setId(Long id) {
+        Long oldValue = this.id;
         this.id = id;
+        fire("id", oldValue, id);
     }
     
     public Long getVersion() {
@@ -105,7 +145,9 @@ public class Customer implements Serializable {
     }
 
     public void setVersion(Long version) {
+        Long oldValue = this.version;
         this.version = version;
+        fire("version", oldValue, version);
     }
 
     public String getFirstName() {
@@ -113,7 +155,19 @@ public class Customer implements Serializable {
     }
 
     public void setFirstName(String firstName) {
+        String oldValue = this.firstName;
+        if ( oldValue == null && firstName == null ) {
+            return;
+        }
+        if ( oldValue != null && oldValue.equals(firstName)) {
+            return;
+        }
+        if ( firstName != null && firstName.equals(oldValue)) {
+            return;
+        }
+        
         this.firstName = firstName;
+        fire("firstName", oldValue, firstName);
     }
 
     public String getLastName() {
@@ -121,7 +175,9 @@ public class Customer implements Serializable {
     }
 
     public void setLastName(String lastName) {
+        String oldValue = this.lastName;
         this.lastName = lastName;
+        fire("lastName", oldValue, lastName);
     }
 
     public String getEmail() {
@@ -129,7 +185,9 @@ public class Customer implements Serializable {
     }
 
     public void setEmail(String email) {
+        String oldValue = this.email;
         this.email = email;
+        fire("email", oldValue, email);
     }
 
     public String getPhone() {
@@ -137,7 +195,9 @@ public class Customer implements Serializable {
     }
 
     public void setPhone(String phone) {
+        String oldValue = this.phone;
         this.phone = phone;
+        fire("phone", oldValue, phone);
     }
 
     public Date getCreatedAt() {
@@ -145,7 +205,9 @@ public class Customer implements Serializable {
     }
 
     public void setCreatedAt(Date createdAt) {
+        Date oldValue = this.createdAt;
         this.createdAt = createdAt;
+        fire("createdAt", oldValue, createdAt);
     }
 
     public Date getCreatedAtEnd() {
@@ -153,7 +215,9 @@ public class Customer implements Serializable {
     }
 
     public void setCreatedAtEnd(Date createdAtEnd) {
+        Date oldValue = this.createdAtEnd;
         this.createdAtEnd = createdAtEnd;
+        fire("createdAtEnd", oldValue, createdAtEnd);
     }
 
 }

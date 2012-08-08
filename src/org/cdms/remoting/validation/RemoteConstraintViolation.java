@@ -11,12 +11,21 @@ public class RemoteConstraintViolation implements Serializable{
     private String constraintMessage;
     private String constraintMessageTemplate;    
     private String propertyPath;
-
+    private String annotationClassName;
+    
     public RemoteConstraintViolation(Object invalidValue, String constraintMessage, String constraintMessageTemplate, String propertyPath) {
         this.invalidValue = invalidValue;
         this.constraintMessage = constraintMessage;
         this.constraintMessageTemplate = constraintMessageTemplate;
         this.propertyPath = propertyPath;
+    }
+
+    public String getAnnotationClassName() {
+        return annotationClassName;
+    }
+
+    public void setAnnotationClassName(String annotationClassName) {
+        this.annotationClassName = annotationClassName;
     }
 
     public Object getInvalidValue() {
