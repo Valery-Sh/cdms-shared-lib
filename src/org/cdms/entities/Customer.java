@@ -47,8 +47,6 @@ public class Customer implements Serializable {
      */
     @Transient    
     private String idFilter;
-    @Transient    
-    private long rowCount;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CDMS_CUSTOMERS_SEQ")
@@ -120,14 +118,6 @@ public class Customer implements Serializable {
         this.createdBy = createdBy;
         fire("createdBy", oldValue, createdBy);
          
-    }
-
-    public long getRowCount() {
-        return rowCount;
-    }
-
-    public void setRowCount(long rowCount) {
-        this.rowCount = rowCount;
     }
 
     public String getIdFilter() {
