@@ -26,6 +26,7 @@ public class ValidationHandler {
                 //cv.getConstraintDescriptor().
                 RemoteConstraintViolation rcv = new RemoteConstraintViolation(cv.getInvalidValue(), cv.getMessage(), cv.getMessageTemplate(), cv.getPropertyPath().toString());
                 rcv.setAnnotationClassName(cv.getConstraintDescriptor().getAnnotation().annotationType().getName());
+                rcv.getAttributes().putAll(cv.getConstraintDescriptor().getAttributes());
                 rve.getViolations().add(rcv);
             }
             throw rve;
@@ -33,4 +34,5 @@ public class ValidationHandler {
             //throw new IllegalArgumentException("HAS VALIDATION ERRORS");
         }
     }
+    
 }
