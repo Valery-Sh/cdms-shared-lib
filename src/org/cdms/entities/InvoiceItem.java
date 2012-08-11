@@ -27,8 +27,6 @@ public class InvoiceItem implements Serializable {
     @Transient    
     private String idFilter;
     
-    @Transient    
-    private Date createdAtEnd;
 
     @Transient
     private transient PropertyChangeSupport changeSupport;
@@ -84,44 +82,54 @@ public class InvoiceItem implements Serializable {
 
     }
 
-    public Long getId() {
+        public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
+        Long oldValue = this.id;
         this.id = id;
+        fire("id", oldValue, id);
     }
-
+    
     public Long getVersion() {
         return version;
     }
 
     public void setVersion(Long version) {
+        Long oldValue = this.version;
         this.version = version;
+        fire("version", oldValue, version);
     }
 
     public Integer getItemCount() {
         return itemCount;
     }
 
-    public void setItemcount(Integer itemCount) {
+    public void setItemСount(Integer itemCount) {
+        Integer oldValue = this.itemCount;
         this.itemCount = itemCount;
+        fire("itemCount", oldValue, itemCount);
+        
     }
 
-    public Long getItemid() {
+    public Long getItemШd() {
         return itemId;
     }
 
-    public void setItemid(Long itemId) {
+    public void setItemId(Long itemId) {
+        Long oldValue = this.itemId;
         this.itemId = itemId;
-    }
+        fire("itemId", oldValue, itemId);    }
 
     public Invoice getInvoice() {
         return invoice;
     }
 
     public void setInvoice(Invoice invoice) {
+        Invoice oldValue = this.invoice;
         this.invoice = invoice;
+        fire("invoice", oldValue, invoice);    
     }
     public String getIdFilter() {
         return idFilter;

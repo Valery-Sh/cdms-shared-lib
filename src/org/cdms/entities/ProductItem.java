@@ -159,6 +159,24 @@ public class ProductItem implements Serializable{
         this.createdAt = createdAt;
         fire("createdAt", oldValue, createdAt);
     }
+    public Date getCreatedAtEnd() {
+        return createdAtEnd;
+    }
+
+    public void setCreatedAtEnd(Date createdAtEnd) {
+        Date oldValue = this.createdAtEnd;
+        this.createdAtEnd = createdAtEnd;
+        fire("createdAtEnd", oldValue, createdAtEnd);
+    }
+    public String getIdFilter() {
+        return idFilter;
+    }
+
+    public void setIdFilter(String idFilter) {
+        String oldValue = this.idFilter;
+        this.idFilter = idFilter;
+        fire("idFilter", oldValue, idFilter);
+    }
 
     public User getCreatedBy() {
         return createdBy;

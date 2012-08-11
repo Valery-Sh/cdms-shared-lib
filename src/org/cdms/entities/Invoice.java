@@ -99,17 +99,21 @@ public class Invoice implements Serializable {
     }
 
     public void setId(Long id) {
+        Long oldValue = this.id;
         this.id = id;
+        fire("id", oldValue, id);
     }
-
+    
     public Long getVersion() {
         return version;
     }
 
     public void setVersion(Long version) {
+        Long oldValue = this.version;
         this.version = version;
+        fire("version", oldValue, version);
     }
-
+    
 
     public Date getCreateAt() {
         return createdAt;
@@ -139,6 +143,15 @@ public class Invoice implements Serializable {
         String oldValue = this.idFilter;
         this.idFilter = idFilter;
         fire("idFilter", oldValue, idFilter);
+    }
+    public Date getCreatedAtEnd() {
+        return createdAtEnd;
+    }
+
+    public void setCreatedAtEnd(Date createdAtEnd) {
+        Date oldValue = this.createdAtEnd;
+        this.createdAtEnd = createdAtEnd;
+        fire("createdAtEnd", oldValue, createdAtEnd);
     }
 
     public Customer getCustomer() {

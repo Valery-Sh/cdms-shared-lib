@@ -107,6 +107,25 @@ public class Customer implements Serializable {
         }
         changeSupport.firePropertyChange(propertyName, oldValue, newValue);
     }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        Long oldValue = this.id;
+        this.id = id;
+        fire("id", oldValue, id);
+    }
+    
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        Long oldValue = this.version;
+        this.version = version;
+        fire("version", oldValue, version);
+    }
     
     public User getCreatedBy() {
         return createdBy;
@@ -129,25 +148,6 @@ public class Customer implements Serializable {
         fire("idFilter", oldValue, idFilter);
     }
     
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        Long oldValue = this.id;
-        this.id = id;
-        fire("id", oldValue, id);
-    }
-    
-    public Long getVersion() {
-        return version;
-    }
-
-    public void setVersion(Long version) {
-        Long oldValue = this.version;
-        this.version = version;
-        fire("version", oldValue, version);
-    }
 
     public String getFirstName() {
         return firstName;
