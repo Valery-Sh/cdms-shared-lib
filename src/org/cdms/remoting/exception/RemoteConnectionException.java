@@ -1,4 +1,6 @@
-package org.cdms.connection.exception;
+package org.cdms.remoting.exception;
+
+
 /*ClassName = com.caucho.hessian.client.HessianRuntimeException
  --- msg = java.net.ConnectException: Connection refused: connect
 Cause ClassName = java.net.ConnectException

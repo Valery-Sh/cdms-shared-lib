@@ -106,7 +106,6 @@ public class Customer implements Serializable {
             return;
         }
         changeSupport.firePropertyChange(propertyName, oldValue, newValue);
-
     }
     
     public User getCreatedBy() {

@@ -1,8 +1,8 @@
-package org.cdms.remoting.validation;
+package org.cdms.remoting.exception;
 
-import org.cdms.remoting.validation.RemoteConstraintViolation;
 import java.util.ArrayList;
 import java.util.List;
+import org.cdms.remoting.validation.RemoteConstraintViolation;
 
 /**
  *

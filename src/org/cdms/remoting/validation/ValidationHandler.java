@@ -1,6 +1,7 @@
 package org.cdms.remoting.validation;
 
 
+import org.cdms.remoting.exception.RemoteValidationException;
 import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;

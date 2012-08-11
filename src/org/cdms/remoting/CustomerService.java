@@ -14,6 +14,6 @@ public interface CustomerService {
     QueryPage<Customer> findByExample(QueryPage<Customer> queryPage );    
     Customer insert(Customer customer);
     Customer update(Customer customer);
-    void delete(long id);
+    Customer delete(long id);
     
 }

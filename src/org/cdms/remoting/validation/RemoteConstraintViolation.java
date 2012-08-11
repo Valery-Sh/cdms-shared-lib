@@ -9,6 +9,19 @@ import java.util.Map;
  * @author V. Shyshkin
  */
 public class RemoteConstraintViolation implements Serializable{
+    
+    public static final int SIZE = 0;
+    public static final int MIN = 4;
+    public static final int MAX = 8;
+    public static final int DIGITS = 12;
+    public static final int NOTNULL = 16;
+    public static final int PATTERN = 20;
+    
+    public static final int OTHER = 100;
+    
+    
+    
+    
     private Object invalidValue;
     private String constraintMessage;
     private String constraintMessageTemplate;    
@@ -22,6 +35,36 @@ public class RemoteConstraintViolation implements Serializable{
         this.constraintMessageTemplate = constraintMessageTemplate;
         this.propertyPath = propertyPath;
         attributes = new HashMap<String,Object>();
+    }
+
+    public int getAnnotationCode() {
+        int v = OTHER;
+        if ( "javax.validation.constraints.Size".equals(getAnnotationClassName())) {
+            v = SIZE;
+        } else if ( "javax.validation.constraints.Min".equals(getAnnotationClassName())) {
+            v = MIN;
+        } else if ( "javax.validation.constraints.Max".equals(getAnnotationClassName())) {
+            v = MAX;
+        } else if ( "javax.validation.constraints.Digits".equals(getAnnotationClassName())) {
+            v = DIGITS;
+        } else if ( "javax.validation.constraints.NotNull".equals(getAnnotationClassName())) {
+            v = NOTNULL;
+        } else if ( "javax.validation.constraints.Pattern".equals(getAnnotationClassName())) {
+            v = PATTERN;
+        }
+/*        if ( getMinAttribute() != null ) {
+            v = MIN;
+        } else if ( getMaxAttribute() != null ) {
+            v = MAX;
+        } else if ( getSizeAttribute() != null ) {
+            v = SIZE;
+        } else if ( getDigitsAttribute() != null ) {
+            v = DIGITS;
+        } else if ( getNotNullAttribute() != null ) {
+            v = NOTNULL;
+        }
+  */      
+        return v;
     }
 
     public String getAnnotationClassName() {
@@ -72,14 +115,30 @@ public class RemoteConstraintViolation implements Serializable{
         this.propertyPath = propertyPath;
     }
     
+            
     public String getMinAttribute() {
-        String v = attributes == null || attributes.isEmpty() ? null : attributes.get("min").toString();
-        return v;
+        Object m = attributes == null || attributes.isEmpty() ? null : attributes.get("min");
+        return m == null ? null : m.toString();
     }
     public String getMaxAttribute() {
-        String v = attributes == null || attributes.isEmpty() ? null : attributes.get("max").toString();
-        return v;
+        Object m = attributes == null || attributes.isEmpty() ? null : attributes.get("max");
+        return m == null ? null : m.toString();
     }
+    public String getPatternRegexpAttribute() {
+        Object m = attributes == null || attributes.isEmpty() ? null : attributes.get("regexp");
+        return m == null ? null : m.toString();
+    }
+    
+/*    public String getDigitsAttribute() {
+        Object m = attributes == null || attributes.isEmpty() ? null : attributes.get("digits");
+        return m == null ? null : m.toString();
+    }
+    public String getNotNullAttribute() {
+        Object m = attributes == null || attributes.isEmpty() ? null : attributes.get("notnull");
+        return m == null ? null : m.toString();
+    }
+*/    
+    
     public String getSizeExpression() {
         String e = null;
         if ( getMinAttribute() != null && getMaxAttribute() != null) {

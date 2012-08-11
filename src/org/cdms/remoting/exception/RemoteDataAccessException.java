@@ -15,6 +15,13 @@ package org.cdms.remoting.exception;
  * @author V. Shyshkin
  */
 public class RemoteDataAccessException extends RuntimeException{
+    public static final int OBJECT_RETRIEVAL = 0; //// mapped object could not be retrieved via its identifier
+    public static final int OBJECT_RETRIEVAL_DELETE = 4; //// mapped object could not be retrieved via its identifier
+    public static final int QUERY = 8; //bad SQL
+    public static final int JDBC = 12; // something went wrong with the underlying resource
+    public static final int SYSTEM = 16; // something went wrong with the underlying resource    
+    public static final int OPTIMISTIC_LOCKING = 20;  //OptimisticLocking
+    
     /**
      * A fully qualified class name of the actual exception 
      */
@@ -25,7 +32,8 @@ public class RemoteDataAccessException extends RuntimeException{
     private String entityName;
     // for HibernateQueryException & HibernateJdbcException.getSql()
     private String queryString;
-
+    
+    private int errorCode;
     public RemoteDataAccessException(String message) {
         super(message);
     }
@@ -36,6 +44,14 @@ public class RemoteDataAccessException extends RuntimeException{
 
     public void setOriginalClassName(String originalClassName) {
         this.originalClassName = originalClassName;
+    }
+
+    public int getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(int errorCode) {
+        this.errorCode = errorCode;
     }
 
     public Object getIdentifier() {
