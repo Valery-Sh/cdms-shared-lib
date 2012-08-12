@@ -115,7 +115,7 @@ public class Invoice implements Serializable {
     }
     
 
-    public Date getCreateAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
