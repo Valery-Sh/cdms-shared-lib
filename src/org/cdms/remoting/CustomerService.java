@@ -10,7 +10,7 @@ import org.cdms.entities.Customer;
 public interface CustomerService {
 
     Customer findById(long userId);
-    List<Customer> findByExample(Customer sample, long firstRecordMaxId,int pageSize);    
+    //List<Customer> findByExample(Customer sample, long firstRecordMaxId,int pageSize);    
     QueryPage<Customer> findByExample(QueryPage<Customer> queryPage );    
     Customer insert(Customer customer);
     Customer update(Customer customer);

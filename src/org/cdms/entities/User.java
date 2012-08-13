@@ -2,6 +2,7 @@ package org.cdms.entities;
 
 import org.cdms.entities.Permission;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
@@ -43,7 +44,7 @@ public class User implements Serializable {
     @NotNull 
     @Size(min=1,max=16) 
     private String password;
-    
+
     @OneToMany(mappedBy = "user",fetch= FetchType.LAZY)
     private List<Permission> permissions = new ArrayList<Permission>();
     
@@ -106,7 +107,5 @@ public class User implements Serializable {
     public void setPermissions(List<Permission> permissions) {
         this.permissions = permissions;
     }
-
-    
 
 }

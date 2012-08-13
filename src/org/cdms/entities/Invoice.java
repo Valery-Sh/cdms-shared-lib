@@ -3,12 +3,12 @@ package org.cdms.entities;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -25,6 +26,8 @@ import javax.validation.constraints.NotNull;
  *
  * @author V. Shyshkin
  */
+@Entity 
+@Table(name = "cdms_Invoices") 
 public class Invoice implements Serializable {
     /**
      * For filter by example 
@@ -46,19 +49,18 @@ public class Invoice implements Serializable {
     @Column(name = "VERSION")
     private Long version;
     
-    @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date createdAt;    
     
     @JoinColumn(name = "CREATEDBY", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private User createdBy;
     
     @JoinColumn(name = "CUSTOMERID", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Customer customer;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "invoiceId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "invoice",fetch= FetchType.LAZY)
     private List<InvoiceItem> invoiceItems;
 
     public Invoice() {
@@ -174,6 +176,7 @@ public class Invoice implements Serializable {
         fire("invoiceItems", oldValue, invoiceItems);
 
     }
+
 
     @Override
     public int hashCode() {

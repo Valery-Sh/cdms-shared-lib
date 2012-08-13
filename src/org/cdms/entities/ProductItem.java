@@ -15,7 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -27,6 +26,9 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "CDMS_ITEMS")
 public class ProductItem implements Serializable{
+//    @Transient    
+//    private String stringPrice;
+    
     /**
      * For filter by example 
      */
@@ -54,10 +56,10 @@ public class ProductItem implements Serializable{
     private String itemName;
     @NotNull
     @Column(name = "CREATEDAT")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date createdAt;
     @JoinColumn(name = "CREATEDBY", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private User createdBy;
 
     public ProductItem() {
@@ -92,7 +94,7 @@ public class ProductItem implements Serializable{
         changeSupport.removePropertyChangeListener(listener);
     }    
     protected void fire(String propertyName,Object oldValue, Object newValue) {
-        if ( changeSupport == null ) {
+        if ( changeSupport == null || ! changeSupport.hasListeners(propertyName)) {
             return;
         }
         changeSupport.firePropertyChange(propertyName, oldValue, newValue);
@@ -212,6 +214,14 @@ public class ProductItem implements Serializable{
     public String toString() {
         return "org.cdms.entities.ProductItem[ id=" + id + " ]";
     }
-    
+
+/*    public String getStringPrice() {
+        return stringPrice;
+    }
+
+    public void setStringPrice(String stringPrice) {
+        this.stringPrice = stringPrice;
+    }
+*/    
     
 }

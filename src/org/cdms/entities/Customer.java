@@ -75,7 +75,8 @@ public class Customer implements Serializable {
     private Date createdAt;
     
     @NotNull 
-    @ManyToOne(fetch= FetchType.LAZY)
+    //@ManyToOne(fetch= FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="createdBy",referencedColumnName="id")
     private User createdBy;
     
@@ -83,9 +84,6 @@ public class Customer implements Serializable {
     private transient PropertyChangeSupport changeSupport;
     
     public Customer() {
-        if ( changeSupport == null ) {
-            changeSupport = new PropertyChangeSupport(this);
-        }
     }
     
     public void addPropertyChangeListener(PropertyChangeListener listener) {

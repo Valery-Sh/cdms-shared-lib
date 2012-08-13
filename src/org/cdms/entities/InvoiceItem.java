@@ -6,12 +6,15 @@ import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
@@ -19,6 +22,8 @@ import javax.validation.constraints.NotNull;
  *
  * @author V. Shyshkin
  */
+@Entity 
+@Table(name = "cdms_InvoiceItems") 
 public class InvoiceItem implements Serializable {
     /**
      * For filter by example 
@@ -43,9 +48,12 @@ public class InvoiceItem implements Serializable {
     @Basic(optional = false)
     
     @NotNull
-    private Long itemId;
+    @ManyToOne
+    @JoinColumn (name="ITEMID", referencedColumnName = "ID") 
+    private ProductItem productItem;
+    
     @JoinColumn(name = "INVOICEID", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Invoice invoice;
 
     public InvoiceItem() {
@@ -55,11 +63,7 @@ public class InvoiceItem implements Serializable {
         this.id = id;
     }
 
-    public InvoiceItem(Long id, Integer itemCount, Long itemId) {
-        this.id = id;
-        this.itemCount = itemCount;
-        this.itemId = itemId;
-    }
+
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         if ( changeSupport == null ) {
             changeSupport = new PropertyChangeSupport(this);
@@ -112,14 +116,14 @@ public class InvoiceItem implements Serializable {
         
     }
 
-    public Long getItemШd() {
-        return itemId;
+    public ProductItem getProductItem() {
+        return productItem;
     }
 
-    public void setItemId(Long itemId) {
-        Long oldValue = this.itemId;
-        this.itemId = itemId;
-        fire("itemId", oldValue, itemId);    }
+    public void setProductItem(ProductItem productItem) {
+        ProductItem oldValue = this.productItem;
+        this.productItem = productItem;
+        fire("productItem", oldValue, productItem);    }
 
     public Invoice getInvoice() {
         return invoice;
