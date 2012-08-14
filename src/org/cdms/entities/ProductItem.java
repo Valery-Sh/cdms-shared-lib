@@ -26,8 +26,8 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "CDMS_ITEMS")
 public class ProductItem implements Serializable{
-//    @Transient    
-//    private String stringPrice;
+    @Transient    
+    private String stringPrice;
     
     /**
      * For filter by example 
@@ -215,13 +215,12 @@ public class ProductItem implements Serializable{
         return "org.cdms.entities.ProductItem[ id=" + id + " ]";
     }
 
-/*    public String getStringPrice() {
+    public String getStringPrice() {
         return stringPrice;
     }
 
     public void setStringPrice(String stringPrice) {
         this.stringPrice = stringPrice;
     }
-*/    
     
 }

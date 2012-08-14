@@ -4,8 +4,6 @@
  */
 package org.cdms.remoting;
 
-import org.cdms.remoting.UserInfo;
-
 /**
  *
  * @author Valery

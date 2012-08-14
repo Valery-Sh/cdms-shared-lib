@@ -8,12 +8,13 @@ package org.cdms.remoting;
  *
  * @author Valery
  */
-public interface EntityService<T> {
-    T findById(long userId);
+public interface EntityService<E> {
+    E findById(long userId);
     //List<Invoice> findByExample(Invoice sample, long firstRecordMaxId,int pageSize);    
-    QueryPage<T> findByExample(QueryPage<T> queryPage );    
-    T insert(T customer);
-    T update(T customer);
-    T delete(long id);
+    QueryPage<E> findByExample(QueryPage<E> queryPage );    
+    E insert(E entity);
+    E update(E entity);
+    E delete(E entity);
+    E deleteById(Long id);
     
 }
