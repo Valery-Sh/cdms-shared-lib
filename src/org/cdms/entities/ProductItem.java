@@ -16,6 +16,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.Transient;
+import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -42,6 +43,8 @@ public class ProductItem implements Serializable{
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CDMS_ITEMS_SEQ")
     @SequenceGenerator(allocationSize=1,initialValue=10, name = "CDMS_ITEMS_SEQ", sequenceName = "CDMS_ITEMS_SEQ")    
     private Long id;
+    
+    @Version
     private Long version;
     @NotNull
     @Column(name = "PRICE")

@@ -12,10 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -41,12 +41,14 @@ public class InvoiceItem implements Serializable {
     private Long id;
     
     @Column(name = "VERSION")
+    @Version
     private Long version;
     
     @NotNull
+    @Column(name="ITEMCOUNT")
     private Integer itemCount;
-    @Basic(optional = false)
     
+    @Basic(optional = false)
     @NotNull
     @ManyToOne
     @JoinColumn (name="ITEMID", referencedColumnName = "ID") 
@@ -109,12 +111,13 @@ public class InvoiceItem implements Serializable {
         return itemCount;
     }
 
-    public void setItemСount(Integer itemCount) {
+    public void setItemCount(Integer itemCount) {
         Integer oldValue = this.itemCount;
         this.itemCount = itemCount;
         fire("itemCount", oldValue, itemCount);
-        
+
     }
+
 
     public ProductItem getProductItem() {
         return productItem;
