@@ -15,6 +15,8 @@ public class QueryPage<T> implements Serializable{
     private long rowCount;
     private T entityAsExample;
     
+    private Object[] param;
+    
     public QueryPage() {
         queryResult = new ArrayList<T>(); 
     }
@@ -67,6 +69,14 @@ public class QueryPage<T> implements Serializable{
 
     public void setEntityAsExample(T entityAsExample) {
         this.entityAsExample = entityAsExample;
+    }
+
+    public Object[] getParam() {
+        return param;
+    }
+
+    public void setParam(Object[] param) {
+        this.param = param;
     }
     
 }//
