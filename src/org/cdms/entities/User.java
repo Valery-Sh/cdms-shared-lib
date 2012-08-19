@@ -1,8 +1,6 @@
 package org.cdms.entities;
 
-import org.cdms.entities.Permission;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
@@ -18,7 +16,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * 
+ * The entity that represents the table "CDMS_USERS" in the ORM mapping.
  * @author V. Shyshkin
  */
 @Entity 

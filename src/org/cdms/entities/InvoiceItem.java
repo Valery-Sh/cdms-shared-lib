@@ -1,4 +1,3 @@
-
 package org.cdms.entities;
 
 import java.beans.PropertyChangeListener;
@@ -19,7 +18,7 @@ import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 
 /**
- *
+ * The entity that represents the table "CDMS_INVOICEITEMS" in the ORM mapping.
  * @author V. Shyshkin
  */
 @Entity 

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.cdms.entities;
 
 import java.io.Serializable;
@@ -18,9 +14,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- *
- * @author Valery
+ * The entity that represents the table "CDMS_PERMISSIONS" in the ORM mapping.
+ * @author V. Shyshkin
  */
+
 @Entity
 @Table(name = "CDMS_PERMISSIONS")
 public class Permission implements Serializable {

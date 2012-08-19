@@ -21,7 +21,7 @@ import javax.persistence.Temporal;
 import javax.persistence.Transient;
 
 /**
- *
+ * The entity that represents the table "CDMS_INVOICES" in the ORM mapping.
  * @author V. Shyshkin
  */
 @Entity 

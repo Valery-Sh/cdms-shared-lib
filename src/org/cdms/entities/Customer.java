@@ -20,21 +20,12 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
- * 
+ * The entity that represents the table "CDMS_CUSTOMERS" in the ORM mapping.
  * @author V. Shyshkin
  */
 @Entity 
 @Table(name = "cdms_Customers") 
-/*@NamedQueries({
-    @NamedQuery(name = "CdmsCustomers.findAll", query = "SELECT c FROM CdmsCustomers c"),
-    @NamedQuery(name = "CdmsCustomers.findById", query = "SELECT c FROM CdmsCustomers c WHERE c.id = :id"),
-    @NamedQuery(name = "CdmsCustomers.findByVersion", query = "SELECT c FROM CdmsCustomers c WHERE c.version = :version"),
-    @NamedQuery(name = "CdmsCustomers.findByFirstname", query = "SELECT c FROM CdmsCustomers c WHERE c.firstname = :firstname"),
-    @NamedQuery(name = "CdmsCustomers.findByLastname", query = "SELECT c FROM CdmsCustomers c WHERE c.lastname = :lastname"),
-    @NamedQuery(name = "CdmsCustomers.findByEmail", query = "SELECT c FROM CdmsCustomers c WHERE c.email = :email"),
-    @NamedQuery(name = "CdmsCustomers.findByPhone", query = "SELECT c FROM CdmsCustomers c WHERE c.phone = :phone"),
-    @NamedQuery(name = "CdmsCustomers.findByCreatedat", query = "SELECT c FROM CdmsCustomers c WHERE c.createdat = :createdat")})
-*/
+
 public class Customer implements Serializable {
     /**
      * For filter by example 
