@@ -80,7 +80,7 @@ public class InvoiceStatView implements Serializable {
     public void setTotals(BigDecimal totals) {
         BigDecimal oldValue = this.totals;
         this.totals = totals;
-        fire("price", oldValue, totals);
+        fire("totals", oldValue, totals);
     }
 
     public String getStringTotals() {

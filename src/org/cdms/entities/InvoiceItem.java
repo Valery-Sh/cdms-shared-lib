@@ -32,8 +32,6 @@ public class InvoiceItem implements Serializable {
     private String idFilter;
     
 
-    @Transient
-    private transient PropertyChangeSupport changeSupport;
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CDMS_INVOICEITEMS_SEQ")
@@ -65,6 +63,8 @@ public class InvoiceItem implements Serializable {
         this.id = id;
     }
 
+    @Transient
+    private transient PropertyChangeSupport changeSupport;
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         if ( changeSupport == null ) {
