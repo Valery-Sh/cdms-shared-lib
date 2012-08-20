@@ -11,8 +11,12 @@ package org.cdms.remoting.exception;
  * The server application translates the exception and transfers 
  * to the client an object of type <code>RemoteDataAccessException</code>
  * instead of the <i>native</i> one.
+ * The class allows an exception that is thrown on the server side
+ * be send back to the client independently of the used remote protocol.
+ * The class corresponds the server side exception that represents 
+ * errors associated with the Spring Framework Data Access.
  * 
- * @author V. Shyshkin
+ * @author Valery
  */
 public class RemoteDataAccessException extends RuntimeException{
     public static final int OBJECT_RETRIEVAL = 0; //// mapped object could not be retrieved via its identifier

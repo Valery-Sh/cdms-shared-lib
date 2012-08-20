@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
+ * The instances of the class correspond to the objects of type 
+ * <code>javax.validation.ConstraintViolation</code> which is part of the
+ * Java Validation Framework (JSR 303).
+ * 
  * @author V. Shyshkin
  */
 public class RemoteConstraintViolation implements Serializable{
@@ -52,18 +55,6 @@ public class RemoteConstraintViolation implements Serializable{
         } else if ( "javax.validation.constraints.Pattern".equals(getAnnotationClassName())) {
             v = PATTERN;
         }
-/*        if ( getMinAttribute() != null ) {
-            v = MIN;
-        } else if ( getMaxAttribute() != null ) {
-            v = MAX;
-        } else if ( getSizeAttribute() != null ) {
-            v = SIZE;
-        } else if ( getDigitsAttribute() != null ) {
-            v = DIGITS;
-        } else if ( getNotNullAttribute() != null ) {
-            v = NOTNULL;
-        }
-  */      
         return v;
     }
 
