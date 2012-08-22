@@ -75,6 +75,9 @@ public class Customer implements Serializable {
     
     public Customer() {
     }
+    public Customer(User createdBy) {
+        this.createdBy = createdBy;
+    }
     
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         if ( changeSupport == null ) {
