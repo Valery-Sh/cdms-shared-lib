@@ -1,16 +1,17 @@
-package org.cdms.remoting;
+package org.cdms.shared.remoting;
 
-import org.cdms.entities.Customer;
+import org.cdms.shared.entities.ProductItem;
 
 /**
  * Defines  <code>insert,update, delete</code> and <code>find</code> functionality
- * for the <code>Customer</code> class.
+ * for the <code>ProductItem</code> class.
  * The class doesn't provide additional methods and serves as marker for 
  * the NetBeans RCP to distinguish between other classes that implement
  * {@link EntityService } .
  * 
- * @see org.cdms.entities.Customer
+ * @see org.cdms.entities.ProductItem
  * @author V. Shyshkin
  */
-public interface CustomerService<E extends Customer> extends EntityService<E>{
+public interface ProductItemService<E extends ProductItem> extends EntityService<E>{
+
 }

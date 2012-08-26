@@ -1,4 +1,4 @@
-package org.cdms.remoting;
+package org.cdms.shared.remoting;
 
 /**
  * Defines authenticate functionality 

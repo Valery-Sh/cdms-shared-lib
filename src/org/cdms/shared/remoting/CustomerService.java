@@ -1,17 +1,16 @@
-package org.cdms.remoting;
+package org.cdms.shared.remoting;
 
-import org.cdms.entities.Invoice;
+import org.cdms.shared.entities.Customer;
 
 /**
  * Defines  <code>insert,update, delete</code> and <code>find</code> functionality
- * for the <code>Invoice</code> class.
+ * for the <code>Customer</code> class.
  * The class doesn't provide additional methods and serves as marker for 
  * the NetBeans RCP to distinguish between other classes that implement
  * {@link EntityService } .
  * 
- * @see org.cdms.entities.Invoice
+ * @see org.cdms.entities.Customer
  * @author V. Shyshkin
  */
-public interface InvoiceService<E extends Invoice> extends EntityService<E>{
-
+public interface CustomerService<E extends Customer> extends EntityService<E>{
 }

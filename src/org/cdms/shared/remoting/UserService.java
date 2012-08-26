@@ -1,6 +1,7 @@
-package org.cdms.remoting;
+package org.cdms.shared.remoting;
 
-import org.cdms.entities.User;
+import org.cdms.shared.entities.User;
+
 
 /**
  *

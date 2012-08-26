@@ -1,4 +1,4 @@
-package org.cdms.remoting.exception;
+package org.cdms.shared.remoting.exception;
 
 /**
  * The class may be used to notify remote clients of the exceptions raised

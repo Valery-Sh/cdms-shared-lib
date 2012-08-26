@@ -1,8 +1,8 @@
-package org.cdms.remoting.exception;
+package org.cdms.shared.remoting.exception;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.cdms.remoting.validation.RemoteConstraintViolation;
+import org.cdms.shared.remoting.validation.RemoteConstraintViolation;
 
 /**
  * The class may be used to notify remote clients of the validation exceptions 

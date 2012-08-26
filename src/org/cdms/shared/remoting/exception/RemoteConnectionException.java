@@ -1,4 +1,4 @@
-package org.cdms.remoting.exception;
+package org.cdms.shared.remoting.exception;
 
 /**
  * The class allows an exception that is thrown on the server side

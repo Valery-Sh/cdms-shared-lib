@@ -1,10 +1,9 @@
-package org.cdms.remoting.validation;
-
+package org.cdms.shared.remoting.validation;
 
 import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
-import org.cdms.remoting.exception.RemoteValidationException;
+import org.cdms.shared.remoting.exception.RemoteValidationException;
 
 /**
  * The class is a wrapper around the class <code>javax.validation.Validator</code>.

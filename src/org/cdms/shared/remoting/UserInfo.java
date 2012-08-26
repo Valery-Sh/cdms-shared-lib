@@ -1,5 +1,5 @@
 
-package org.cdms.remoting;
+package org.cdms.shared.remoting;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,6 +22,7 @@ public class UserInfo implements Serializable {
     private String lastName;
     private String userName;
     private Object proxyFactory;
+    private String authMessage;
     
     private List<String> roles = new ArrayList<String>();
     
@@ -126,6 +127,10 @@ public class UserInfo implements Serializable {
 
     public void setProxyFactory(Object proxyFactory) {
         this.proxyFactory = proxyFactory;
+    }
+
+    public void setAuthMessage(String authMessage) {
+        this.authMessage = authMessage;
     }
     
     

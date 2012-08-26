@@ -1,4 +1,4 @@
-package org.cdms.remoting.validation;
+package org.cdms.shared.remoting.validation;
 
 import java.io.Serializable;
 import java.util.HashMap;

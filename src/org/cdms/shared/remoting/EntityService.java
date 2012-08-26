@@ -1,4 +1,5 @@
-package org.cdms.remoting;
+package org.cdms.shared.remoting;
+
 
 /**
  * Defines  <code>insert,update, delete</code> and <code>find</code> functionality.

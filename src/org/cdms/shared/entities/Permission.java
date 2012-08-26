@@ -1,4 +1,4 @@
-package org.cdms.entities;
+package org.cdms.shared.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;

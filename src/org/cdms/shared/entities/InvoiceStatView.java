@@ -1,5 +1,5 @@
 
-package org.cdms.entities;
+package org.cdms.shared.entities;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

@@ -1,10 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package org.cdms.remoting;
+package org.cdms.shared.remoting;
 
-import org.cdms.entities.InvoiceStatView;
+import org.cdms.shared.entities.InvoiceStatView;
 
 /**
  * Defines the functionality to request statistics about <code>Invoice</code>.

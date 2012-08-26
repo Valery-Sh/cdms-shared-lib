@@ -1,4 +1,4 @@
-package org.cdms.remoting;
+package org.cdms.shared.remoting;
 
 import java.io.Serializable;
 import java.util.ArrayList;
